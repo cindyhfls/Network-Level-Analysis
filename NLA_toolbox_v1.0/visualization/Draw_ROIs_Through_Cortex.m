@@ -63,6 +63,7 @@ hold on
 
 %% Draw tubes
 ends.location=cat(1,ROI.coord(Conn(:,1),:),ROI.coord(Conn(:,2),:));
+params.ctx = Anat.ctx
 ends=AdjustFoci(ends,Anat.CtxL,Anat.CtxR,Anat.view,Anat.ctx);
     
 for j=1:Ntube

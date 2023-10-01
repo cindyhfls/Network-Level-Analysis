@@ -3,8 +3,9 @@
 addpath(genpath(pwd));
 addpath(genpath('/data/wheelock/data1/software/cifti-matlab-master')); % downloaded from https://www.mathworks.com/matlabcentral/fileexchange/56783-washington-university-cifti-matlab
 
-parcelname = 'Parcellation1'% Change me %
-parcels_path = '/data/wheelock/data1/parcellations/DustinScheinostNeonateParcellation/baby_atlas_in_MNI_space_fs_LR32k_dilated10mm_cleanedpt1thresh_LR_minsize10.dlabel.nii'; % Change me % 
+parcelname = 'eLABE_Y2_prelim_072023_0.75.mat'% Change me %
+% parcels_path = '/data/wheelock/data1/parcellations/DustinScheinostNeonateParcellation/baby_atlas_in_MNI_space_fs_LR32k_dilated10mm_cleanedpt1thresh_LR_minsize10.dlabel.nii'; % Change me % 
+parcels_path = '/data/wheelock/data1/people/Cindy/BCP/ParcelCreationGradientBoundaryMap/GradientMap/eLABE_Y2_N113_atleast600frames/eLABE_Y2_N113_atleast600frames_avg_corrofcorr_allgrad_LR_smooth2.55_wateredge_avg_global_edgethresh_0.75_nogap_minsize_15_relabelled.dlabel.nii'
 
 parceldata = cifti_read(parcels_path);
 parceldata = parceldata.cdata;
@@ -18,9 +19,9 @@ Parcels.CtxR = zeros(n_verts_per_hem,1);
 Parcels.CtxL(Linds) = parceldata(1:length(Linds));
 Parcels.CtxR(Rinds-n_verts_per_hem) = parceldata(length(Linds)+1:end);
 
-% outdir = '/data/wheelock/data1/people/Cindy/BCP/ParcelPlots' % Change me % 
-% matpath= fullfile(outdir,strcat('/Parcels_',parcelname,'.mat'));
-% save(matpath,'Parcels'); % uncomment to save
+outdir = '/data/wheelock/data1/people/Cindy/BCP/ParcelPlots' % Change me % 
+matpath= fullfile(outdir,strcat('/Parcels_',parcelname,'.mat'));
+save(matpath,'Parcels'); % uncomment to save
 
 %% View all parcels on MNI
 load('MNI_coord_meshes_32k.mat')
@@ -55,18 +56,4 @@ set(gcf,'color','w','InvertHardCopy','off');
 % print(gcf,fullfile(outdir,[parcelname,'.png']),'-dpng');
 return
 
-
-%% (optional) obtain distance matrices
-neighbors_path = '/data/cn/data1/scripts/CIFTI_RELATED/Resources/Conte69_atlas-v2.LR.32k_fs_LR.wb/Cifti_surf_neighbors_LR_normalwall.mat'; %Change me%
-load(neighbors_path,'neighbors');
-
-dist_path = {'/data/wheelock/data1/parcellations/SurfaceFiles/distmat_surf_geodesic_L_uint8.mat',...
-    '/data/wheelock/data1/parcellations/SurfaceFiles/distmat_surf_geodesic_R_uint8.mat'};%Change me%
-
-dist(1) = load(dist_path{1});
-dist(2) = load(dist_path{2});
-distL = squareform(dist(1).D);
-distR = squareform(dist(2).D);
-
-fcn_calc_neighs_per_parcel(parcels_path,distL,distR,neighbors,matpath)
 

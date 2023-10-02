@@ -1,10 +1,12 @@
 %% Load mesh
+clear;clc;
 addpath(genpath(pwd))
 load('MNI_coord_meshes_32k.mat')
 Anat.CtxL = MNIl;Anat.CtxR = MNIr;
 clear MNIl MNIr
 
 %% Plot 
+% vals = randn(1,59412);
 vals =[randn(1,29696)*0.1,randn(1,29716)*100]; % the values for each cortical vertex 
 Lindtrunc= with_without_mw_conversion('Lindtrunc');
 Rindtrunc = with_without_mw_conversion('Rindtrunc');
@@ -13,7 +15,7 @@ Rindfull = with_without_mw_conversion('Rindfull');
 Anat.CtxL.data=zeros(32492,1);Anat.CtxL.data(Lindfull) = vals(Lindtrunc);
 Anat.CtxR.data=zeros(32492,1);Anat.CtxR.data(Rindfull-32492) = vals(Rindtrunc);
 params.TC = 0;
-% params.Cmap.P = 'jet';
+params.Cmap.P = 'jet';
 % cmap = hot(200);
 % params.Cmap.P = flipud(cmap(101:200,:));%hot(100);% 'jet';
 % cmap = redbluecmap(11);
@@ -39,3 +41,4 @@ params.fig_handle = gca;
 params.view='med';       % 'dorsal','post','lat','med'
 PlotLRMeshes_mod(Anat.CtxL,Anat.CtxR, params);
 % set(gcf,'color','w');
+print('Example5.png','-dpng');

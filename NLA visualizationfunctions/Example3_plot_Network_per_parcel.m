@@ -2,19 +2,17 @@
 clear;
 addpath(genpath(pwd));
 
-load('/data/wheelock/data1/people/Ayoushman/WashU120_codes/washu120_clustering.mat')
-
 % load parcel file CtxL and CtxR with Left Hemisphere and Right Hemisphere
 % ROI assignments
 parcel_name = 'Gordon'
 load(['Parcels_',parcel_name,'.mat'],'Parcels');
 
-key = idk;%### % user input of nROIx1
-nNet = length(unique(key))
+
 % % load corresponding IM file
-% load('IM_11_BCP94.mat','IM');
+load('IM_Gordon_13nets_333Parcels.mat','IM');
 Parcel_Nets.CtxL = Parcels.CtxL;Parcel_Nets.CtxR = Parcels.CtxR;
-% [~,sortid] = sort(IM.order);key = IM.key(sortid,2);
+[~,sortid] = sort(IM.order);key = IM.key(sortid,2);
+nNet = length(unique(key))
 
 % find network assignments for each ROI
 for ii = 1:size(key,1)
@@ -27,7 +25,8 @@ Anat.CtxL = MNIl;Anat.CtxR = MNIr;
 clear MNIl MNIr
 Anat.CtxL.data=Parcel_Nets.CtxL; 
 Anat.CtxR.data=Parcel_Nets.CtxR;
-params.Cmap.P=linspecer(nNet);%IM.cMap;jet(nNet)
+% params.Cmap.P=linspecer(nNet);%IM.cMap;jet(nNet)
+params.Cmap.P=IM.cMap;
 params.TC=1;
 params.ctx='inf';         % also, 'std','inf','vinf'
 
@@ -41,4 +40,4 @@ params.fig_handle = ax;
 params.view='med';        % also, 'post','lat','med'
 PlotLRMeshes_mod(Anat.CtxL,Anat.CtxR, params);
 
-% print('Example3.png','-dpng');
+print('Example3.png','-dpng');

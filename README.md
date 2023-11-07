@@ -23,6 +23,7 @@ Taken a given surface parcel assignment in the cortex in the fsLR 32k space. Plo
 
 **Example 3**
 Plot the network assignment spatially on the brain. Using a file that stores the colormap and network assignment in the NLA toolbox.
+
 ![image](https://github.com/cindyhfls/Network-Level-Analysis/blob/main/NLA%20visualizationfunctions/Example3.png)
 
 **Example 4**
@@ -32,10 +33,12 @@ Making a parcel file (the assignment of each cortical vertex) from a cifti file 
 
 **Example 5**
 Plot continuous values on the cortex, e.g. Principal gradient (Margulies et al. 2016 PNAS), cortical thickness, Myelin, local connectivity gradient (Gordon et al. 2016 Cerebral Cortex) etc.
+
 ![image](https://github.com/cindyhfls/Network-Level-Analysis/blob/main/NLA%20visualizationfunctions/Example5.png)
 
 **Example 6**
 Same as Example 3 but load the network assignment from any user-load .txt/.mat file (e.g. output of community detection)
+
 ![image](https://github.com/cindyhfls/Network-Level-Analysis/blob/main/NLA%20visualizationfunctions/Example6.png)
 
 **Example 7**

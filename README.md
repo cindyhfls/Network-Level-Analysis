@@ -36,3 +36,7 @@ Plot continuous values on the cortex, e.g. Principal gradient (Margulies et al. 
 **Example 6**
 Same as Example 3 but load the network assignment from any user-load .txt/.mat file (e.g. output of community detection)
 ![image](https://github.com/cindyhfls/Network-Level-Analysis/blob/main/NLA%20visualizationfunctions/Example6.png)
+
+**Example 7**
+Plot a subsection of edges on the brain.
+![image](https://github.com/cindyhfls/Network-Level-Analysis/blob/main/NLA%20visualizationfunctions/Example7.png)

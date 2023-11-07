@@ -27,6 +27,7 @@ Plot the network assignment spatially on the brain. Using a file that stores the
 
 **Example 4**
 Making a parcel file (the assignment of each cortical vertex) from a cifti file with just the cortical vertices. This is needed for Example 2 and 3.
+
 ![image](https://github.com/cindyhfls/Network-Level-Analysis/blob/main/NLA%20visualizationfunctions/Example4.png)
 
 **Example 5**

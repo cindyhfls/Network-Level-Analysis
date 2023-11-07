@@ -8,7 +8,7 @@ The team switched to developing a GUI version (currently in preparation).
 I added a few functions for evaluation the network model and visualization examples which I found helpful while I using the toolbox functions for visualization.
 
 # Limitation: 
-All visualization is done in the fsLR 32k space. For transition across spaces please try this toolbox: https://github.com/netneurolab/neuromaps.
+All visualization is done in the fsLR 32k mesh of the MNI standard brain. For transition across spaces please try this toolbox: https://github.com/netneurolab/neuromaps.
 
 ## Specific example applications
 **Example 1** 

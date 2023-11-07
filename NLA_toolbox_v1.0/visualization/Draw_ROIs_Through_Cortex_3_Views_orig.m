@@ -1,4 +1,6 @@
-function Draw_ROIs_Through_Cortex_3_Views(Anat,roi,Conn,params)
+function Draw_ROIs_Through_Cortex_3_Views_orig(Anat,roi,Conn,params)
+
+params.fig = 0;% CT 20231107, otherwise the subplot don't work!
 
 % This function displays hemispheres with ROI spheres and sticks connecting
 % them in 3 views.

@@ -43,6 +43,7 @@ Ntube=size(Conn,1);
 if ~isfield(params,'fig'),params.fig=1;end
 if ~isfield(params,'brain'),params.brain=1;end
 if ~isfield(params,'lighting'),params.lighting='phong';end
+if ~isfield(params,'edgewidth'),params.edgewidth = 5; end % CT 20231107
 params.Scale=1;
 params.Th.P=1;
 params.Th.N=-1;
@@ -76,15 +77,15 @@ for j=1:Ntube
     end
     plot3(ends.location([j,j+Ntube],1),ends.location([j,j+Ntube],2),...
         ends.location([j,j+Ntube],3),...
-        'Color',Tcolor,'LineWidth',5);%ceil(10*abs(Conn(j,3)))
+        'Color',Tcolor,'LineWidth',params.edgewidth);%ceil(10*abs(Conn(j,3)))
     elseif Conn(j,6)==0
         plot3(ends.location([j,j+Ntube],1),ends.location([j,j+Ntube],2),...
         ends.location([j,j+Ntube],3),...
-        'Color',squeeze(Conn(j,3:5)),'LineWidth',5);%
+        'Color',squeeze(Conn(j,3:5)),'LineWidth',params.edgewidth);%
     elseif Conn(j,6)==1
         plot3(ends.location([j,j+Ntube],1),ends.location([j,j+Ntube],2),...
         ends.location([j,j+Ntube],3),'--',...
-        'Color',squeeze(Conn(j,3:5)),'LineWidth',5);%
+        'Color',squeeze(Conn(j,3:5)),'LineWidth',params.edgewidth);%
     end
     
 end

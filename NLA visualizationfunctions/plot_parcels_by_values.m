@@ -15,7 +15,7 @@ function plot_parcels_by_values(x,Anat,parcelview,Parcels,clim,cmap)
     params.ctx='inf';           % 'std','inf','vinf'
     params.view= parcelview;       % 'dorsal','post','lat','med'
     params.fig_handle = gca;
-    PlotLRMeshes(Anat.CtxL,Anat.CtxR, params);
+    PlotLRMeshes_mod(Anat.CtxL,Anat.CtxR, params);
     set(gcf,'color','w');
 end
 

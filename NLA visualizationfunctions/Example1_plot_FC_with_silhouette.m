@@ -2,8 +2,8 @@
 addpath(genpath(pwd));
 
 % load data
-load('/data/wheelock/data1/datasets/WashU120/120_allsubs_corr_Gordon.mat','pconn'); % 333x333 average FC data
-zmatWashU120 = pconn;
+load('/data/wheelock/data1/datasets/WashU120/Parcels_LR_avgcorr_120.mat','corrmat'); % 333x333 average FC data
+zmatWashU120 = corrmat;
 
 % load parcel and reorder data according to parcel
 load('IM_Gordon_13nets_333Parcels.mat');

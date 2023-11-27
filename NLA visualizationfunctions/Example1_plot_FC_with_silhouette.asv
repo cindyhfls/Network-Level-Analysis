@@ -29,9 +29,7 @@ Matrix_Org3(zmat_gordon_WashU120(keepnets,keepnets),...
 title('WashU 120 (Gordon Networks)'); % 10 min rs
 D = calc_correlationdist(zmat_gordon_WashU120); % calculating correlation distance pairwise by ignoring the diagonals
 s = silhouette_mod(IM.key(keepnets,2),D(keepnets,keepnets),M);
-Qs = modularity_signed(zmat_gordon_WashU120(keepnets,keepnets),IM.key(keepnets,2));
 text(0.3,-0.05,sprintf('avg SI = %2.3f',mean(s)),'Units','normalized','FontWeight','Bold');
-text(0.3,-0.11,sprintf('Qsigned = %2.3f',Qs),'Units','normalized','FontWeight','Bold');
 
 subplot(1,2,2);
 
@@ -46,8 +44,8 @@ Matrix_Org3(zmat_Kardan_WashU120(keepnets,keepnets),...
 title('WashU 120 (Kardan Networks)');
 D = calc_correlationdist(zmat_Kardan_WashU120);
 s = silhouette_mod(KardanIM.key(keepnets,2),D(keepnets,keepnets),M);
-Qs = modularity_signed(zmat_Kardan_WashU120(keepnets,keepnets),KardanIM.key(keepnets,2));
+Qs = modularity_signed(
 text(0.3,-0.05,sprintf('avg SI = %2.3f',mean(s)),'Units','normalized','FontWeight','Bold');
-text(0.3,-0.11,sprintf('Qsigned = %2.3f',Qs),'Units','normalized','FontWeight','Bold');
+text(0.3,-0.1,sprintf('Qsigned = %2.3f',Qs),'Units','normalized','FontWeight','Bold');
 
-print('Example1.png','-dpng')
+% print('Example1.png','-dpng')

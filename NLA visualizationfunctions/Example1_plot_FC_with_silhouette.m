@@ -24,8 +24,7 @@ keepnets = IM.key(:,2)~=noneidx;
 M = ones(max(IM.key(:,2)));M(noneidx,:) = 0; M(:,noneidx) = 0;M = M-diag(diag(M)); % states which clusters will be compared
 
 % visualize FC
-Matrix_Org3(zmat_gordon_WashU120(keepnets,keepnets),...
-    IM.key(keepnets,:),10,[-0.3,0.3],IM.cMap,0);
+Easy_Matrix_Plot(zmat_gordon_WashU120(keepnets,keepnets), IM.key(keepnets,2),IM.cMap,[-0.3,0.3],0)
 title('WashU 120 (Gordon Networks)'); % 10 min rs
 D = calc_correlationdist(zmat_gordon_WashU120); % calculating correlation distance pairwise by ignoring the diagonals
 s = silhouette_mod(IM.key(keepnets,2),D(keepnets,keepnets),M);
@@ -41,8 +40,7 @@ keepnets = KardanIM.key(:,2)~=noneidx;
 M = ones(max(KardanIM.key(:,2)));M(noneidx,:) = 0; M(:,noneidx) = 0;M = M-diag(diag(M));
 
 % visualize FC
-Matrix_Org3(zmat_Kardan_WashU120(keepnets,keepnets),...
-    KardanIM.key(keepnets,:),10,[-0.3,0.3],KardanIM.cMap,0);
+Easy_Matrix_Plot(zmat_Kardan_WashU120(keepnets,keepnets),KardanIM.key(keepnets,2),KardanIM.cMap,[-0.3,0.3],0)
 title('WashU 120 (Kardan Networks)');
 D = calc_correlationdist(zmat_Kardan_WashU120);
 s = silhouette_mod(KardanIM.key(keepnets,2),D(keepnets,keepnets),M);

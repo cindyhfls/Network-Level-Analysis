@@ -5,7 +5,7 @@ This is a forked directory for the Network Level Analysis (NLA) Toolbox (Beta ve
 
 The team switched to developing a GUI version (currently in preparation).
 
-I added a few functions for evaluation the network model and visualization examples which I found helpful while I using the toolbox functions for visualization.
+I added a few functions for evaluation the network model and visualization examples which I found helpful while I use the toolbox functions for visualization which is what this is for.
 
 # Limitation: 
 All visualization is done in the fsLR 32k mesh of the MNI standard brain. For transition across spaces please try this toolbox: https://github.com/netneurolab/neuromaps.
